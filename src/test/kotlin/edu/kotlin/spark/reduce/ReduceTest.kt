@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test
 class ReduceTest {
 
   @Test
-  fun `test reduce function`() {
+  fun `use reduce to sum up all numbers`() {
     // Given
     val inputData = listOf(1, 2, 3, 4, 5)
     val reduce = Reduce()
