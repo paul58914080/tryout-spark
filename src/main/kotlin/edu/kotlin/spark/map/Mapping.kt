@@ -11,4 +11,8 @@ class Mapping {
   fun computeSqrt(inputData: List<Int>): List<Double> {
     return sc.use { it.parallelize(inputData).map { Math.sqrt(it.toDouble()) }.collect() }
   }
+
+  fun countElements(inputData: List<Int>): Int {
+    return sc.use { it.parallelize(inputData).map { 1 }.reduce { a, b -> a + b } }
+  }
 }
