@@ -1,4 +1,4 @@
-package edu.kotlin.spark
+package edu.sample.spark.core
 
 import org.apache.spark.SparkConf
 import org.apache.spark.api.java.JavaSparkContext

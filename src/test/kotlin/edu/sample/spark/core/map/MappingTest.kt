@@ -1,4 +1,4 @@
-package edu.kotlin.spark.map
+package edu.sample.spark.core.map
 
 import org.junit.jupiter.api.Test
 

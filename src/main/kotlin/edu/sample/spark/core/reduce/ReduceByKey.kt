@@ -1,4 +1,4 @@
-package edu.kotlin.spark.reduce
+package edu.sample.spark.core.reduce
 
 import org.apache.spark.SparkConf
 import org.apache.spark.api.java.JavaSparkContext

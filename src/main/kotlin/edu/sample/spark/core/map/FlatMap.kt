@@ -1,4 +1,4 @@
-package edu.kotlin.spark.map
+package edu.sample.spark.core.map
 
 import org.apache.spark.SparkConf
 import org.apache.spark.api.java.JavaSparkContext

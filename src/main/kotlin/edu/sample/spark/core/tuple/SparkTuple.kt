@@ -1,4 +1,4 @@
-package edu.kotlin.spark.tuple
+package edu.sample.spark.core.tuple
 
 import org.apache.spark.SparkConf
 import org.apache.spark.api.java.JavaSparkContext

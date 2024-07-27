@@ -1,4 +1,4 @@
-package edu.kotlin.spark.tuple
+package edu.sample.spark.core.tuple
 
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test

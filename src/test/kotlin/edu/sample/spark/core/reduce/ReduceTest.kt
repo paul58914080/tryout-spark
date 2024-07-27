@@ -1,4 +1,4 @@
-package edu.kotlin.spark.reduce
+package edu.sample.spark.core.reduce
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
