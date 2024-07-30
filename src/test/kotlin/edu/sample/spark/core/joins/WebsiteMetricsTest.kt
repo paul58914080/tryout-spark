@@ -12,7 +12,7 @@ class WebsiteMetricsTest {
   lateinit var usersStore: List<Tuple2<Long, String>>
 
   @BeforeAll
-  internal fun loadData(): Unit {
+  internal fun loadData() {
     visitsStore = listOf(Tuple2(4, 18), Tuple2(6, 4), Tuple2(10, 9))
     usersStore =
       listOf(
