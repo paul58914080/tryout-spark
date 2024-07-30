@@ -37,6 +37,15 @@ class WebsiteMetrics(val visitsStore: List<Visit>, val usersStore: List<User>) {
     }
   }
 
+  fun getMetricForAllUsersVisitsButNotAvailableInUserOrVisitStore():
+    List<Tuple2<Long, Tuple2<Optional<Long>, Optional<String>>>> {
+    return sc.use {
+      val visitsPairRDD = getVisitsAsPairRDD()
+      val userPairRDD = getUsersAsPairRDD()
+      visitsPairRDD.fullOuterJoin(userPairRDD).collect()
+    }
+  }
+
   private fun getUsersAsPairRDD(): JavaPairRDD<Long, String> =
     sc.parallelize(usersStore).mapToPair { Tuple2(it.userId, it.username) }
 

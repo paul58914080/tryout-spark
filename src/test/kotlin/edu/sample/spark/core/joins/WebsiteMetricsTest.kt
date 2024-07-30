@@ -81,4 +81,27 @@ class WebsiteMetricsTest {
         )
       )
   }
+
+  @Test
+  fun `count the number of visits per user by full outer join`() {
+    // Given
+    val websiteMetrics = WebsiteMetrics(visitsStore, usersStore)
+    // When
+    val result: List<Tuple2<Long, Tuple2<Optional<Long>, Optional<String>>>> =
+      websiteMetrics.getMetricForAllUsersVisitsButNotAvailableInUserOrVisitStore()
+    // Then
+    assertThat(result)
+      .hasSize(7)
+      .containsAll(
+        listOf(
+          Tuple2(1, Tuple2(empty(), of("John"))),
+          Tuple2(2, Tuple2(empty(), of("Bob"))),
+          Tuple2(3, Tuple2(empty(), of("Alan"))),
+          Tuple2(4, Tuple2(of(18), of("Doris"))),
+          Tuple2(5, Tuple2(empty(), of("Marybelle"))),
+          Tuple2(6, Tuple2(of(4), of("Raquel"))),
+          Tuple2(10, Tuple2(of(9), empty())),
+        )
+      )
+  }
 }
