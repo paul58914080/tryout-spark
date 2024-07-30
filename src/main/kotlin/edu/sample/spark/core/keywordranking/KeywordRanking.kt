@@ -3,6 +3,7 @@ package edu.sample.spark.core.keywordranking
 import java.io.Serializable
 import org.apache.spark.SparkConf
 import org.apache.spark.api.java.JavaSparkContext
+import scala.Tuple2
 
 class KeywordRanking : Serializable {
   companion object {
@@ -29,7 +30,12 @@ class KeywordRanking : Serializable {
         */
         .filter { filterSentences(it) && filterSpaceAndBlankLine(it) }
         .flatMap { it.split(" ").iterator() }
-        .filter { word -> !boringwords.contains(word) }
+        .filter { word -> !boringwords.contains(word.lowercase()) }
+        .mapToPair { word -> Tuple2(word, 1L) }
+        .reduceByKey { a, b -> a + b }
+        .mapToPair { Tuple2(it._2, it._1) }
+        .sortByKey(false)
+        .map { it._2 }
         .take(n)
     }
   }

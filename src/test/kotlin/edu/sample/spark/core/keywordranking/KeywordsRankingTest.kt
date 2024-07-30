@@ -5,14 +5,14 @@ import org.junit.jupiter.api.Test
 
 class KeywordsRankingTest {
   @Test
-  fun `determine all the keywords for all the courses apart from boring words`() {
+  fun `determine top keywords for all the courses apart from boring words`() {
     // Given
     val keywordRanking = KeywordRanking()
     // When
     val boringWords = keywordRanking.getBoringWords()
-    val keywords = keywordRanking.getTopNKeywords(100)
+    val keywords = keywordRanking.getTopNKeywords(2)
     // Then
     assertThat(boringWords).containsAnyOf("shouldnt", "worrying", "simplify", "tidy")
-    assertThat(keywords).doesNotContainAnyElementsOf(boringWords)
+    assertThat(keywords).containsAnyOf("docker", "swarm")
   }
 }
