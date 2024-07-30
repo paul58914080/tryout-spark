@@ -1,6 +1,6 @@
 1
 00:00:00,286 --> 00:00:01,777
-- [Instructor] Hello and welcome to this
+Instructor Hello and welcome to this
 
 2
 00:00:01,777 --> 00:00:03,954
@@ -317,7 +317,7 @@ what is Docker.
 
 1
 00:00:00,191 --> 00:00:01,142
-- [Instructor] Welcome back.
+Instructor Welcome back.
 
 2
 00:00:01,142 --> 00:00:02,785
@@ -1671,7 +1671,7 @@ with Docker an absolute joy.
 
 1
 00:00:00,871 --> 00:00:03,161
-- [Instructor] Welcome
+Instructor Welcome
 back to chapter three.
 
 2
@@ -3129,7 +3129,7 @@ If you didn't get this far, do contact us.
 
 1
 00:00:00,636 --> 00:00:03,419
-- [Instructor] Hello and welcome back!
+Instructor Hello and welcome back!
 
 2
 00:00:03,419 --> 00:00:06,185
@@ -4944,7 +4944,7 @@ Docker container run.
 
 412
 00:21:00,630 --> 00:21:04,380
-- p will do 80, being
+p will do 80, being
 forwarded to 8080 again.
 
 413
@@ -5134,7 +5134,7 @@ So, I'll see you in the next chapter.
 
 1
 00:00:00,864 --> 00:00:01,869
-- [Instructor] Welcome back.
+Instructor Welcome back.
 
 2
 00:00:01,869 --> 00:00:05,202
@@ -8685,7 +8685,7 @@ in the next chapter.
 
 1
 00:00:00,548 --> 00:00:01,742
-- [Instructor] Hello and welcome back.
+Instructor Hello and welcome back.
 
 2
 00:00:01,742 --> 00:00:04,540
@@ -11525,7 +11525,7 @@ and I will see you there.
 
 1
 00:00:00,878 --> 00:00:02,198
-- [Instructor] Hello, and welcome back.
+Instructor Hello, and welcome back.
 
 2
 00:00:02,198 --> 00:00:04,482
@@ -14342,7 +14342,7 @@ and I'll see you then.
 
 1
 00:00:00,180 --> 00:00:01,244
-- [Narrator] Hello and welcome back.
+Narrator Hello and welcome back.
 
 2
 00:00:01,244 --> 00:00:04,002
@@ -15434,7 +15434,7 @@ So I'll see you for the last chapter.
 
 1
 00:00:00,404 --> 00:00:01,318
-- [Narrator] Hello and welcome back.
+Narrator Hello and welcome back.
 
 2
 00:00:01,318 --> 00:00:02,966
@@ -16005,7 +16005,7 @@ more production standard.
 
 1
 00:00:01,214 --> 00:00:02,896
-- [Narrator] Well, that's
+Narrator Well, that's
 the end of this first
 
 2
@@ -16306,7 +16306,7 @@ And I'll see you for Docker module two.
 
 1
 00:00:00,468 --> 00:00:03,185
-[Narrator] - A very warm
+Narrator A very warm
 welcome to module two
 
 2
@@ -16551,7 +16551,7 @@ I'll see you for that in chapter two.
 
 1
 00:00:00,870 --> 00:00:01,828
-- [Instructor] To start the course,
+Instructor To start the course,
 
 2
 00:00:01,828 --> 00:00:04,813
@@ -20974,7 +20974,7 @@ I'll see you in the next chapter.
 
 1
 00:00:00,228 --> 00:00:02,424
-- [Narrator] It's going to be
+Narrator It's going to be
 quite a short chapter this one
 
 2
@@ -22861,7 +22861,7 @@ run Docker from Maven.
 
 1
 00:00:00,363 --> 00:00:01,306
-- [Lecturer] In this chapter,
+Lecturer In this chapter,
 
 2
 00:00:01,306 --> 00:00:04,618
@@ -26004,7 +26004,7 @@ maven-deploy
 
 729
 00:32:38,855 --> 00:32:39,688
-- plugin.
+plugin.
 
 730
 00:32:40,646 --> 00:32:43,439
@@ -26520,7 +26520,7 @@ In the next chapter, it's Docker Compose.
 
 1
 00:00:01,240 --> 00:00:03,922
-- [Instructor] It's
+Instructor It's
 time to get serious now.
 
 2
@@ -30192,7 +30192,7 @@ so I hope I'll see you in those chapters.
 
 1
 00:00:00,434 --> 00:00:02,141
-- [Instructor] And now
+Instructor And now
 for the part of the course
 
 2
@@ -31289,7 +31289,7 @@ We'll do a docker network create,
 
 249
 00:11:37,582 --> 00:11:39,332
-- -driver and overlay.
+-driver and overlay.
 
 250
 00:11:41,317 --> 00:11:43,045
@@ -32105,7 +32105,7 @@ oh those environment variables again,
 
 434
 00:21:01,807 --> 00:21:03,890
-- E my sql_route_password,
+E my sql_route_password,
 
 435
 00:21:06,944 --> 00:21:09,974
@@ -32113,7 +32113,7 @@ this is going to be set equal to password
 
 436
 00:21:09,974 --> 00:21:14,057
-- E my sql_database will
+E my sql_database will
 be set equal to fleetman.
 
 437
@@ -32122,7 +32122,7 @@ We need a name for this service,
 
 438
 00:21:22,086 --> 00:21:24,003
-- -name will be database
+-name will be database
 
 439
 00:21:25,470 --> 00:21:28,543
@@ -32784,7 +32784,7 @@ I'll see you then.
 
 1
 00:00:00,393 --> 00:00:02,386
-- [Instructor] Hello and
+Instructor Hello and
 welcome back, in this chapter
 
 2
@@ -33500,7 +33500,7 @@ but you also have to add in the
 
 161
 00:08:09,245 --> 00:08:10,078
-- -no-cache
+-no-cache
 
 162
 00:08:13,427 --> 00:08:15,701
@@ -35290,7 +35290,7 @@ dashes in for the dots,
 
 564
 00:28:31,995 --> 00:28:32,828
-- 76-6.
+76-6.
 
 565
 00:28:36,027 --> 00:28:39,777
@@ -37132,7 +37132,7 @@ see you in the next chapter.
 
 1
 00:00:00,962 --> 00:00:01,795
-- [Instructor] Well, I hope you've
+Instructor Well, I hope you've
 
 2
 00:00:01,795 --> 00:00:02,790
@@ -40277,7 +40277,7 @@ run -data for detached,
 
 715
 00:33:34,124 --> 00:33:35,727
-- p to publish ports.
+p to publish ports.
 
 716
 00:33:35,727 --> 00:33:38,274
@@ -41329,7 +41329,7 @@ that in the next chapter.
 
 1
 00:00:00,400 --> 00:00:01,990
-- [Instructor] Apart
+Instructor Apart
 from the summary chapter,
 
 2
@@ -43698,7 +43698,7 @@ on the previous course, it was a dream.
 
 1
 00:00:00,372 --> 00:00:02,161
-- [Instructor] Well, that's
+Instructor Well, that's
 it then for another course
 
 2
