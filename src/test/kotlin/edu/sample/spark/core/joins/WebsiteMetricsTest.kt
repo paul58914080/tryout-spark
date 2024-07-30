@@ -11,20 +11,20 @@ import scala.Tuple2
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class WebsiteMetricsTest {
-  lateinit var visitsStore: List<Tuple2<Long, Long>>
-  lateinit var usersStore: List<Tuple2<Long, String>>
+  lateinit var visitsStore: List<Visit>
+  lateinit var usersStore: List<User>
 
   @BeforeAll
   internal fun loadData() {
-    visitsStore = listOf(Tuple2(4, 18), Tuple2(6, 4), Tuple2(10, 9))
+    visitsStore = listOf(Visit(4, 18), Visit(6, 4), Visit(10, 9))
     usersStore =
       listOf(
-        Tuple2(1, "John"),
-        Tuple2(2, "Bob"),
-        Tuple2(3, "Alan"),
-        Tuple2(4, "Doris"),
-        Tuple2(5, "Marybelle"),
-        Tuple2(6, "Raquel"),
+        User(1, "John"),
+        User(2, "Bob"),
+        User(3, "Alan"),
+        User(4, "Doris"),
+        User(5, "Marybelle"),
+        User(6, "Raquel"),
       )
   }
 
