@@ -15,4 +15,16 @@ class KeywordsRankingTest {
     assertThat(boringWords).containsAnyOf("shouldnt", "worrying", "simplify", "tidy")
     assertThat(keywords).containsAnyOf("docker", "swarm")
   }
+
+  @Test
+  fun `determine top keywords for spring course apart from boring words`() {
+    // Given
+    val keywordRanking = KeywordRanking("input-spring.txt")
+    // When
+    val boringWords = keywordRanking.getBoringWords()
+    val keywords = keywordRanking.getTopNKeywords(2)
+    // Then
+    assertThat(boringWords).containsAnyOf("shouldnt", "worrying", "simplify", "tidy")
+    assertThat(keywords).containsAnyOf("Spring", "Dao")
+  }
 }

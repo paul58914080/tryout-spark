@@ -5,7 +5,7 @@ import org.apache.spark.SparkConf
 import org.apache.spark.api.java.JavaSparkContext
 import scala.Tuple2
 
-class KeywordRanking : Serializable {
+class KeywordRanking(val filename: String? = null) : Serializable {
   companion object {
     private const val serialVersionUID = 1L
   }
@@ -17,7 +17,7 @@ class KeywordRanking : Serializable {
     val sc = JavaSparkContext(configuration)
     return sc.use {
       it
-        .textFile("src/main/resources/subtitles/input.txt")
+        .textFile("src/main/resources/subtitles/${filename?:"input.txt"}")
         /*
         for each line filter the line which has number i.e. id of the course and the time
 
@@ -30,6 +30,7 @@ class KeywordRanking : Serializable {
         */
         .filter { filterSentences(it) && filterSpaceAndBlankLine(it) }
         .flatMap { it.split(" ").iterator() }
+        .map { it.replace(",", "") }
         .filter { word -> !boringwords.contains(word.lowercase()) }
         .mapToPair { word -> Tuple2(word, 1L) }
         .reduceByKey { a, b -> a + b }
