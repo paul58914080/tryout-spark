@@ -16,7 +16,6 @@ class CourseMetrics {
 
   fun getCourseChapterCount(): List<Tuple2<Long, Long>> {
     sc.use {
-      val titlesPairRDD = getTitlesPairRDD(it)
       val courseChapterCountPairRDD = getCourseChapterCountPairRDD(it)
       return courseChapterCountPairRDD
         .reduceByKey { a, b -> a + b } // (courseId, totalNumberOfChapters)
@@ -28,11 +27,5 @@ class CourseMetrics {
     jpc.textFile("src/main/resources/viewing_figures/chapters.csv").mapToPair { row ->
       val cols = row.split(",")
       Tuple2(cols[1].toLong(), 1L)
-    }
-
-  private fun getTitlesPairRDD(jpc: JavaSparkContext): JavaPairRDD<Long, String> =
-    jpc.textFile("src/main/resources/viewing_figures/titles.csv").mapToPair { row ->
-      val cols = row.split(",")
-      Tuple2(cols[0].toLong(), cols[1])
     }
 }

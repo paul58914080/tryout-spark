@@ -1,6 +1,5 @@
 package edu.sample.spark.core.coursemetrics
 
-import org.assertj.core.api.Assertions
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import scala.Tuple2
