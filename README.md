@@ -24,6 +24,7 @@ mvn clean install
 - There are two kinds of operation that you do with RDD
   1. [Transformation](https://spark.apache.org/docs/latest/rdd-programming-guide.html#transformations): which create a new dataset from an existing one
   2. [Actions](https://spark.apache.org/docs/latest/rdd-programming-guide.html#actions): which return a value to the driver program after running a computation on the dataset
+- PairRDD: RDDs that contain key-value pairs. PairRDDs are commonly used to perform aggregations and other operations that require shuffling the data between nodes. Common operations include grouping or aggregating(reducing) data by a key, or joining two datasets.
 
 ### RDD Transformations
 
@@ -37,9 +38,27 @@ is a transformation that passes each element of the RDD through a function and r
 
 ![Map](docs/img/map.svg)
 
->   Example: [MappingTest.kt](src/test/kotlin/edu/sample/spark/core/map/MappingTest.kt)
+> Example: [MappingTest.kt](src/test/kotlin/edu/sample/spark/core/map/MappingTest.kt)
 
+##### `reduceByKey(func)`
 
+When called on a dataset of `(K, V)` pairs, returns a dataset of `(K, V)` pairs where the values for each key are aggregated using the given reduce function func, which must be of type `(V,V) => V`
+
+![ReduceByKey](docs/img/reduceByKey.svg)
+
+> Example: [ReduceByKeyTest.kt](src/test/kotlin/edu/sample/spark/core/reduce/ReduceByKeyTest.kt)
+
+##### `groupByKey(func)`
+
+When called on a dataset of `(K, V)` pairs, returns a dataset of `(K, Iterable<V>)` pairs. It is an expensive operation since it shuffles the data.
+
+![GroupByKey](docs/img/groupByKey.svg)
+
+##### `flatMap(func)`
+
+Similar to map, but each input item can be mapped to 0 or more output items (so func should return a Seq rather than a single item).
+
+> Example: [FlatMapTest.kt](src/test/kotlin/edu/sample/spark/core/map/FlatMapTest.kt)
 
 ### RDD Actions
 
@@ -53,12 +72,20 @@ is an action that aggregates the elements of the RDD using a function and return
 
 ![Reduce](docs/img/reduce.svg)
 
->   Example: [ReduceTest.kt](src/test/kotlin/edu/sample/spark/core/reduce/ReduceTest.kt)
+> Example: [ReduceTest.kt](src/test/kotlin/edu/sample/spark/core/reduce/ReduceTest.kt)
 
 ##### `foreach(func)`
 
 is an action that applies a function to all elements of the RDD. It has no return value.
 
 
+## Exercises
 
+### Keyword ranking
+
+The aim of this activity is to rank the keywords based on the number of times they appear in the text. The input is a text file and the output is keywords that are ordered by the number of appearances. We need to discard the common words like `the`, `a`, `an`, `is`, `are`, etc. The input file is [input.txt](src/main/resources/subtitles/input.txt) and the boring words files is [boringwords.txt](src/main/resources/subtitles/boringwords.txt). As a trail 2, you can try to find the top keywords for [input-spring.txt](src/main/resources/subtitles/input-spring.txt) considering the same [boringwords.txt](src/main/resources/subtitles/boringwords.txt) to be discarded during the computation.
+
+> Solution: [KeywordRankingTest.kt](src/test/kotlin/edu/sample/spark/core/keywordranking/KeywordsRankingTest.kt)
+
+### Big data processing for course metrics
 
