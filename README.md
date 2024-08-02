@@ -70,6 +70,12 @@ Similar to map, but each input item can be mapped to 0 or more output items (so 
 
 When called on a dataset of `(K, V)` pairs where K implements Ordered, returns a dataset of `(K, V)` pairs sorted by keys in ascending or descending order, as specified in the boolean ascending argument. Remember when this is used with `foreach` it will print the output in the order of the key.
 
+#### `join()`
+
+When called on datasets of type `(K, V)` and `(K, W)`, returns a dataset of `(K, (V, W))` pairs with all pairs of elements for each key. Outer joins are also supported.
+
+![Join](docs/img/join.svg)
+
 ### RDD Actions
 
 Any Spark operation that returns a value to the driver program is an action. Actions force the evaluation of the transformations required for the RDD they were called on, since they need to actually produce output.
