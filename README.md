@@ -38,6 +38,12 @@ is a transformation that passes each element of the RDD through a function and r
 
 > Example: [MappingTest.kt](src/test/kotlin/edu/sample/spark/core/map/MappingTest.kt)
 
+#### `filter(func)`
+
+is a transformation that returns a new RDD containing only the elements that satisfy a predicate.
+
+![Filter](docs/img/filter.svg)
+
 #### `reduceByKey(func)`
 
 When called on a dataset of `(K, V)` pairs, returns a dataset of `(K, V)` pairs where the values for each key are aggregated using the given reduce function func, which must be of type `(V,V) => V`
