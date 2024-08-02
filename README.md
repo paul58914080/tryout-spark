@@ -30,9 +30,7 @@ mvn clean install
 
 All transformations in Spark are lazy, in that they do not compute their results right away. Instead, they just remember the transformations applied to some base dataset (e.g. a file). The transformations are only computed when an action requires a result to be returned to the driver program. This design enables Spark to run more efficiently.
 
-#### Map
-
-##### `map(func)`
+#### `map(func)`
 
 is a transformation that passes each element of the RDD through a function and returns a new RDD.
 
@@ -40,7 +38,7 @@ is a transformation that passes each element of the RDD through a function and r
 
 > Example: [MappingTest.kt](src/test/kotlin/edu/sample/spark/core/map/MappingTest.kt)
 
-##### `reduceByKey(func)`
+#### `reduceByKey(func)`
 
 When called on a dataset of `(K, V)` pairs, returns a dataset of `(K, V)` pairs where the values for each key are aggregated using the given reduce function func, which must be of type `(V,V) => V`
 
@@ -48,13 +46,13 @@ When called on a dataset of `(K, V)` pairs, returns a dataset of `(K, V)` pairs 
 
 > Example: [ReduceByKeyTest.kt](src/test/kotlin/edu/sample/spark/core/reduce/ReduceByKeyTest.kt)
 
-##### `groupByKey(func)`
+#### `groupByKey(func)`
 
 When called on a dataset of `(K, V)` pairs, returns a dataset of `(K, Iterable<V>)` pairs. It is an expensive operation since it shuffles the data.
 
 ![GroupByKey](docs/img/groupByKey.svg)
 
-##### `flatMap(func)`
+#### `flatMap(func)`
 
 Similar to map, but each input item can be mapped to 0 or more output items (so func should return a Seq rather than a single item).
 
@@ -64,9 +62,23 @@ Similar to map, but each input item can be mapped to 0 or more output items (so 
 
 Any Spark operation that returns a value to the driver program is an action. Actions force the evaluation of the transformations required for the RDD they were called on, since they need to actually produce output.
 
-#### Reduce
+#### `collect()`
 
-##### `reduce(func)` 
+is an action that returns all elements of the RDD to the driver program in the form of an array.
+
+#### `count()`
+
+is an action that returns the number of elements in the RDD to the driver program.
+
+#### `take(n)`
+
+is an action that returns an array with the first n elements of the dataset.
+
+#### `first()`
+
+is an action that returns the first element of the RDD to the driver program.
+
+#### `reduce(func)` 
 
 is an action that aggregates the elements of the RDD using a function and returns the final result to the driver program. 
 
@@ -74,7 +86,7 @@ is an action that aggregates the elements of the RDD using a function and return
 
 > Example: [ReduceTest.kt](src/test/kotlin/edu/sample/spark/core/reduce/ReduceTest.kt)
 
-##### `foreach(func)`
+#### `foreach(func)`
 
 is an action that applies a function to all elements of the RDD. It has no return value.
 
