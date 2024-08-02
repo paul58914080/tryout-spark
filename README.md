@@ -66,6 +66,10 @@ Similar to map, but each input item can be mapped to 0 or more output items (so 
 
 > Example: [FlatMapTest.kt](src/test/kotlin/edu/sample/spark/core/map/FlatMapTest.kt)
 
+#### `sortByKey()`
+
+When called on a dataset of `(K, V)` pairs where K implements Ordered, returns a dataset of `(K, V)` pairs sorted by keys in ascending or descending order, as specified in the boolean ascending argument. Remember when this is used with `foreach` it will print the output in the order of the key.
+
 ### RDD Actions
 
 Any Spark operation that returns a value to the driver program is an action. Actions force the evaluation of the transformations required for the RDD they were called on, since they need to actually produce output.
