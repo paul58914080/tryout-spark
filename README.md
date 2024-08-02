@@ -52,7 +52,7 @@ When called on a dataset of `(K, V)` pairs, returns a dataset of `(K, V)` pairs 
 
 > Example: [ReduceByKeyTest.kt](src/test/kotlin/edu/sample/spark/core/reduce/ReduceByKeyTest.kt)
 
-#### `groupByKey(func)`
+#### `groupByKey()`
 
 When called on a dataset of `(K, V)` pairs, returns a dataset of `(K, Iterable<V>)` pairs. It is an expensive operation since it shuffles the data.
 
@@ -61,6 +61,8 @@ When called on a dataset of `(K, V)` pairs, returns a dataset of `(K, Iterable<V
 #### `flatMap(func)`
 
 Similar to map, but each input item can be mapped to 0 or more output items (so func should return a Seq rather than a single item).
+
+![FlatMap](docs/img/flatMap.svg)
 
 > Example: [FlatMapTest.kt](src/test/kotlin/edu/sample/spark/core/map/FlatMapTest.kt)
 
