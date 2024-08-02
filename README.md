@@ -29,6 +29,20 @@ mvn clean install
 
 All transformations in Spark are lazy, in that they do not compute their results right away. Instead, they just remember the transformations applied to some base dataset (e.g. a file). The transformations are only computed when an action requires a result to be returned to the driver program. This design enables Spark to run more efficiently.
 
+#### Map
+
+##### `map(func)`
+
+is a transformation that passes each element of the RDD through a function and returns a new RDD. [MappingTest.kt](src/test/kotlin/edu/kotlin/spark/map/MappingTest.kt)
+
+![Map](docs/img/map.svg)
+
+>   Example: [MappingTest.kt](src/test/kotlin/edu/sample/spark/core/map/MappingTest.kt)
+
+### RDD Actions
+
+Any Spark operation that returns a value to the driver program is an action. Actions force the evaluation of the transformations required for the RDD they were called on, since they need to actually produce output.
+
 #### Reduce
 
 ##### `reduce(func)` 
@@ -39,15 +53,7 @@ is an action that aggregates the elements of the RDD using a function and return
 
 >   Example: [ReduceTest.kt](src/test/kotlin/edu/sample/spark/core/reduce/ReduceTest.kt)
 
-#### Map
 
-##### `map(func)` 
-
-is a transformation that passes each element of the RDD through a function and returns a new RDD. [MappingTest.kt](src/test/kotlin/edu/kotlin/spark/map/MappingTest.kt)
-
-![Map](docs/img/map.svg)
-
->   Example: [MappingTest.kt](src/test/kotlin/edu/sample/spark/core/map/MappingTest.kt)
 
 
 
