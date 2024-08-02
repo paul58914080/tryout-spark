@@ -33,11 +33,13 @@ All transformations in Spark are lazy, in that they do not compute their results
 
 ##### `map(func)`
 
-is a transformation that passes each element of the RDD through a function and returns a new RDD. [MappingTest.kt](src/test/kotlin/edu/kotlin/spark/map/MappingTest.kt)
+is a transformation that passes each element of the RDD through a function and returns a new RDD.
 
 ![Map](docs/img/map.svg)
 
 >   Example: [MappingTest.kt](src/test/kotlin/edu/sample/spark/core/map/MappingTest.kt)
+
+
 
 ### RDD Actions
 
@@ -53,6 +55,9 @@ is an action that aggregates the elements of the RDD using a function and return
 
 >   Example: [ReduceTest.kt](src/test/kotlin/edu/sample/spark/core/reduce/ReduceTest.kt)
 
+##### `foreach(func)`
+
+is an action that applies a function to all elements of the RDD. It has no return value.
 
 
 
