@@ -8,11 +8,11 @@ class ReduceTest {
   @Test
   fun `use reduce to sum up all numbers`() {
     // Given
-    val inputData = listOf(1, 2, 3, 4, 5)
+    val inputData = listOf(1, 2, 3, 4)
     val reduce = Reduce()
     // When
     val result = reduce.addAllElements(inputData)
     // Then
-    assertThat(result).isEqualTo(15)
+    assertThat(result).isEqualTo(10)
   }
 }
