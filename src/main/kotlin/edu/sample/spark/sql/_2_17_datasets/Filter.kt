@@ -30,4 +30,16 @@ class Filter {
       }
       .count()
   }
+
+  fun countRecordsBySubjectAndYearWithColFilters(
+    sparkSession: SparkSession,
+    subject: String,
+    year: Int,
+  ): Long {
+    val students =
+      sparkSession.read().option("header", "true").csv("src/main/resources/exams/students.csv")
+    val subjectCol = students.col("subject")
+    val yearCol = students.col("year")
+    return students.filter(subjectCol.like(subject).and(yearCol.eqNullSafe(year))).count()
+  }
 }

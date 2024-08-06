@@ -42,4 +42,14 @@ class FilterTest {
     // Then
     assertThat(count).isEqualTo(15_764L)
   }
+
+  @Test
+  fun `count the records for a particular subject and year with column filters`() {
+    // Given
+    val filter = Filter()
+    // When
+    val count: Long = filter.countRecordsBySubjectAndYearWithColFilters(sparkSession, "Modern Art", 2005)
+    // Then
+    assertThat(count).isEqualTo(15_764L)
+  }
 }
