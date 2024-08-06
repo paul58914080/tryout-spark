@@ -24,12 +24,22 @@ class FilterTest {
   }
 
   @Test
-  fun `count the records for subject 'Modern Art'`() {
+  fun `count the records for a particular subject`() {
     // Given
     val filter = Filter()
     // When
     val count: Long = filter.countRecordsForSubject(sparkSession, "Modern Art")
     // Then
     assertThat(count).isEqualTo(149_980L)
+  }
+
+  @Test
+  fun `count the records for a particular subject and year`() {
+    // Given
+    val filter = Filter()
+    // When
+    val count: Long = filter.countRecordsForSubjectAndYear(sparkSession, "Modern Art", 2005)
+    // Then
+    assertThat(count).isEqualTo(15_764L)
   }
 }
