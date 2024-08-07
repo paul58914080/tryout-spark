@@ -1,6 +1,7 @@
 package edu.sample.spark.sql._2_17_datasets
 
 import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.functions.col
 
 class Filter {
 
@@ -52,6 +53,18 @@ class Filter {
       val subjectCol = students.col("subject")
       val yearCol = students.col("year")
       students.filter(subjectCol.like(subject).and(yearCol.eqNullSafe(year))).count()
+    }
+  }
+
+  fun countRecordsForSubjectAndYearWithFunctionColFilters(subject: String, year: Int): Long {
+    val sparkSession = SparkSession.builder().appName("FilterTest").master("local[*]").getOrCreate()
+    return sparkSession.use {
+      val students =
+        sparkSession.read().option("header", "true").csv("src/main/resources/exams/students.csv")
+      students
+        // col is a function that returns a Column and its alias is column function
+        .filter(col("subject").like(subject).and(col("year").eqNullSafe(year)))
+        .count()
     }
   }
 }

@@ -44,11 +44,21 @@ class FilterTest {
   }
 
   @Test
-  fun `count the records for a particular subject and year with 'column' filters`() {
+  fun `count the records for a particular subject and year with 'dataset column' filters`() {
     // Given
     val filter = Filter()
     // When
     val count: Long = filter.countRecordsForSubjectAndYearWithColFilters("Modern Art", 2005)
+    // Then
+    assertThat(count).isEqualTo(15_764L)
+  }
+
+  @Test
+  fun `count the records for a particular subject and year with 'function col' filters`() {
+    // Given
+    val filter = Filter()
+    // When
+    val count: Long = filter.countRecordsForSubjectAndYearWithFunctionColFilters("Modern Art", 2005)
     // Then
     assertThat(count).isEqualTo(15_764L)
   }
