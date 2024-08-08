@@ -67,4 +67,16 @@ class Filter {
         .count()
     }
   }
+
+  fun maxScoreForSubjectWithTempViewFilters(subject: String): Int {
+    val sparkSession = SparkSession.builder().appName("FilterTest").master("local[*]").getOrCreate()
+    return sparkSession.use {
+      val students =
+        sparkSession.read().option("header", "true").csv("src/main/resources/exams/students.csv")
+      students.createOrReplaceTempView("students")
+      val result =
+        sparkSession.sql("SELECT MAX(score) as max_score FROM students WHERE subject = '$subject'")
+      result.first().getAs<String>("max_score")?.toInt() ?: 0
+    }
+  }
 }

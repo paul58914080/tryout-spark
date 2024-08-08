@@ -62,4 +62,24 @@ class FilterTest {
     // Then
     assertThat(count).isEqualTo(15_764L)
   }
+
+  @Test
+  fun `compute the max score for the subject 'French' with 'temp view' like filters`() {
+    // Given
+    val filter = Filter()
+    // When
+    val maxScore: Int = filter.maxScoreForSubjectWithTempViewFilters("French")
+    // Then
+    assertThat(maxScore).isEqualTo(98)
+  }
+
+  @Test
+  fun `compute the max score for the subject 'Frenchies' which does not exist with 'temp view' like filters`() {
+    // Given
+    val filter = Filter()
+    // When
+    val maxScore: Int = filter.maxScoreForSubjectWithTempViewFilters("Frenchies")
+    // Then
+    assertThat(maxScore).isEqualTo(0)
+  }
 }
