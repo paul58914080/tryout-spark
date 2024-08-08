@@ -34,11 +34,11 @@ class FilterTest {
   }
 
   @Test
-  fun `count the records for a particular subject and year with 'java' like filters`() {
+  fun `count the records for a particular subject and year with 'java lambda' like filters`() {
     // Given
     val filter = Filter()
     // When
-    val count: Long = filter.countRecordsForSubjectAndYearWithJavaFilters("Modern Art", 2005)
+    val count: Long = filter.countRecordsForSubjectAndYearWithJavaLambdaFilters("Modern Art", 2005)
     // Then
     assertThat(count).isEqualTo(15_764L)
   }

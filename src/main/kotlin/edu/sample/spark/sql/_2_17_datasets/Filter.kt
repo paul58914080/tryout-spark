@@ -32,7 +32,7 @@ class Filter {
     }
   }
 
-  fun countRecordsForSubjectAndYearWithJavaFilters(subject: String, year: Int): Long {
+  fun countRecordsForSubjectAndYearWithJavaLambdaFilters(subject: String, year: Int): Long {
     val sparkSession = SparkSession.builder().appName("FilterTest").master("local[*]").getOrCreate()
     return sparkSession.use {
       val students =
